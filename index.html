@@ -1,702 +1,537 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <title>Nomayer Masum Portfolio</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Masum Al Mahmud Nomayer — Portfolio</title>
 
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/aos.css">
+  <style>
+    :root{
+      --bg:#bd0ac6;
+      --card:#dfd80ccc;
+      --muted:#ffffff;
+      --accent:#f9bf3f;
+      --glass: rgba(255,255,255,0.05);
+      --container-width:1100px;
+      --radius:16px;
+    }
 
-    <link rel="stylesheet" href="css/ionicons.min.css">
-    
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: #000000;
+      color:var(--accent);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
 
+    /* Page container */
+    .wrap{
+      max-width:var(--container-width);
+      margin:32px auto;
+      padding:20px;
+    }
 
+    /* Navbar */
+    .nav {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:28px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .brand .logo{
+      width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#f98a3f);display:flex;align-items:center;justify-content:center;font-weight:700;color:#082033;
+      box-shadow: 0 6px 18px rgba(249,191,63,0.12);
+    }
+    .brand h1{font-size:18px;margin:0;font-weight:600}
+    .nav-links{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .nav-links a{
+      color:var(--muted);
+      text-decoration:none;
+      padding:8px 12px;border-radius:8px;font-weight:600;font-size:14px;
+    }
+    .nav-links a:hover{color:#fff;background:rgba(255,255,255,0.03)}
+    .cta{
+      display:flex;gap:10px;align-items:center;
+    }
+    .btn{
+      background:var(--accent);
+      color:#071022;
+      padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;
+      display:inline-flex;align-items:center;gap:10px;
+      box-shadow: 0 6px 18px rgba(249,191,63,0.12);
+    }
+    .btn-outline{
+      background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);padding:8px 12px;border-radius:10px;
+    }
 
-<style>
+    /* Mobile nav toggle */
+    .menu-toggle{display:none;font-size:20px;background:transparent;border:0;color:var(--muted)}
 
-/*======================================
-//--//-->   ABOUT
-======================================*/
+    /* Centered section box style (re-usable) */
+    .section-box{
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border-radius:var(--radius);
+      padding:28px;
+      border:1px solid rgba(255,255,255,0.04);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      margin-bottom:28px;
+    }
 
-.about-mf .box-shadow-full {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+    /* Hero */
+    .hero{
+      display:flex;
+      gap:28px;
+      align-items:center;
+      justify-content:space-between;
+      padding:18px;
+    }
+    .hero-left{flex:1;min-width:260px}
+    .hero-right{
+      width:300px;height:300px;border-radius:12px;background:
+      linear-gradient(180deg, rgba(249,191,63,0.12), rgba(0,0,0,0.05));
+      display:flex;align-items:center;justify-content:center;overflow:hidden;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .hero-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
-.about-mf .about-img {
-  margin-bottom: 2rem;
+
+    .intro-sub{color:var(--accent);font-weight:700;margin-bottom:6px}
+    .intro-title{color:var(--muted);font-size:28px;margin:4px 0 8px;font-weight:700}
+    .intro-desc{color:var(--muted);margin:0 0 16px;max-width:54ch}
+
+    .socials{display:flex;gap:10px}
+    .socials a{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;background:rgba(255,255,255,0.02);color:var(--muted);text-decoration:none;font-size:18px}
+    .socials a:hover{color:#fff;background:rgba(255,255,255,0.04)}
+
+    /* About layout: text + info list */
+    .about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+}
+    .about-text{ text-align:justify; color: #eeeff1; font-size:16px; line-height:1.75;}
+    .about-info{display:flex;flex-direction:column;gap:1px}
+    .info-row {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.89);
+  font-size: 14px;
+  color:var(--muted);
 }
 
-.about-mf .about-img img {
-  margin-left: 10px;
+.info-row strong {
+  color:var(--accent);
+  min-width: 200px; /* optional but makes it very neat */
 }
 
 
-.skill-mf .progress {
-  /* background-color: #cde1f8; */
-  margin: .5rem 0 1.2rem 0;
-  border-radius: 0;
-  height: .7rem;
+    /* Resume cards */
+    .resume-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:12px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .card h3{margin:0 0 6px;font-size:16px}
+    .date{color:var(--muted);font-size:13px}
+
+    /* Projects gallery */
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .proj{
+      border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+    .proj:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(2,8,23,0.6)}
+    .proj .thumb {
+  height: 160px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-
-.skill-mf .progress .progress-bar {
-  height: .7rem;
-  background-color: #ffbd39;
+.projects-grid .thumb {
+  width: 100%;
+  height: 170px;
+  background-size: contain;     /* shows full image, no zoom */
+  background-position: center;
+  background-repeat: no-repeat; /* prevents repeating */
+  border-radius: 10px;
+  background-color: #fff;       /* optional: adds clean background behind images */
 }
-
-
-/* Animation styles */
-#typing-animation {
-  position: relative;
-  font-size: 30px;
-  font-weight: bold;
-  color: rgb(255, 255, 255);
+/* .thumb {
+  width: 100%;
+  height: 210px;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
-  white-space: nowrap;
-  animation: typing 3s steps(20, end) infinite;
+} */
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* fit inside box, no zoom */
 }
 
-#typing-animation:before {
-  content: "";
-  /* position: absolute; */
+.meta h4 a {
+  color: var(--accent);      /* change this to any color you want */
+  text-decoration: none; /* remove underline (optional) */
+  margin-bottom: 10px;
+}
+.meta h4 {
+  margin-bottom: 10px; /* space between heading and paragraph */
+}
+
+.meta p {
+  margin-top: 0; /* makes sure no extra gap appears */
+}
+
+.nav {
+  position: fixed;
   top: 0;
   left: 0;
-  width: 0;
-  height: 100%;
-  background-color: #ccc;
-  animation: typing-cursor 0.5s ease-in-out infinite;
+  width: 100%;
+  z-index: 999;
+  background: #01000c; /* or your navbar background color */
+  padding: 12px 0;
 }
 
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+body {
+  margin-top: 90px; /* adjust based on navbar height */
 }
 
-@keyframes typing-cursor {
-  from {
-    width: 5px;
-  }
-  to {
-    width: 0;
-  }
-}
+    .proj .meta{padding:12px}
+    .proj .meta h4{margin:0 0 12px;font-size:15px}
+    .proj .meta p{margin:0;color:var(--muted);font-size:14px}
 
+    /* Contact cards */
+    .contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .contact-card{text-align:center;padding:16px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
+    .contact-card h4{margin:10px 0 6px;font-size:15px}
+    .contact-card p{margin:0;color:var(--muted);font-size:14px}
 
-/* project image zoom effect */
+    /* Footer */
+    footer{margin-top:18px;padding:18px;text-align:center;color:var(--muted);font-size:14px}
 
-.zoom-effect {
-  overflow: hidden;
-  transition: transform 0.3s ease-out;
-}
+    /* Responsive */
+    @media (max-width:1024px){
+      .projects-grid{grid-template-columns:repeat(2,1fr)}
+      .about-grid{grid-template-columns:1fr}
+      .hero{flex-direction:column-reverse;gap:18px}
+      .hero-right{width:100%;height:220px}
+      .resume-grid{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:repeat(2,1fr)}
+      .menu-toggle{display:block}
+      .nav-links{display:none}
+    }
+    @media (max-width:640px){
+      .wrap{padding:12px;margin:16px auto}
+      .projects-grid{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      .brand h1{font-size:15px}
+      .hero-right{height:180px}
+      .intro-title{font-size:22px}
+    }
 
-.zoom-effect:hover {
-  transform: scale(1.1);
-}
+    /* small helper */
+    .muted{color:var(--muted)}
+    .center{text-align:center}
+  </style>
+</head>
+<body>
 
+  <div class="wrap">
+    <!-- NAVBAR -->
+    <nav class="nav" aria-label="Main navigation">
+      <div class="brand">
+        <!-- <div class="logo">NM</div> -->
+        <div class="muted" style="font-size:40px">
+          <h1>Welcome to My Portfolio! I’m glad you’re here 😊</h1>
+          <!-- <div class="muted" style="font-size:12px">Aspiring Data Analyst</div> -->
+        </div>
+      </div>
 
-</style>
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
 
+      <!-- <div class="cta">
+        <!-- <a class="btn-outline" href="https://github.com/nomayer-masum" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> GitHub</a> -->
+        <!-- <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><i class="fa fa-bars"></i></button>
+      </div> -->
+    </nav>
 
-  </head>
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-	  
-	  
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Masum Al Mahmud Nomayer</a>
-	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
+    <!-- HERO -->
+    <section id="home" class="section-box hero" aria-labelledby="homeTitle">
+      <div class="hero-left">
+        <div class="intro-sub">Hello!</div>
+        <h2 id="homeTitle" class="intro-title">I'm Masum Al Mahmud Nomayer</h2>
+        <p class="intro-desc">Data enthusiast with experience in data visualization, analytics, and quality assurance. I convert messy data into meaningful insights that help teams make smarter decisions.</p>
 
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav nav ml-auto">
-	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-	          <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
-	          <li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
-	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
-	  <section id="home-section" class="hero">
-		  <div class="home-slider  owl-carousel">
-	       <div class="slider-item ">
-	      	<div class="overlay"></div>
-	         <div class="container">
-	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-	          	<div class="one-third js-fullheight order-md-last img" style="background-image:url(images/Portfolio_Image_Edit.png);">
-	          	 <div class="overlay"></div>
-	          	</div>
-		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-		          	<div class="text">
-		          		<span class="subheading">Hello!</span>
-			            <h1 class="mb-4 mt-3">I'm <span>Masum Al Mahmud Nomayer</span></h1>
+        <div style="display:flex;gap:12px;align-items:center">
+          <a class="btn" href="https://drive.google.com/file/d/1MQjkXYBnLKwBg3lhCZpFodpKme2NrckS/view?usp=sharing" target="_blank" rel="noreferrer"></i>View Resume</a>
+          <!-- <a class="btn-outline" href="https://www.linkedin.com/in/nomayer" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a> -->
+        </div>
 
-						<!-- Element to contain animated typing -->
-						<span id="typing-animation"></span>
+        <div style="margin-top:16px" class="socials" aria-hidden="true">
+          <!-- <a href="mailto:nomayer.masum@gmail.com" title="Email"><i class="fa fa-envelope"></i></a>
+          <a href="https://wa.me/+8801645093629" title="WhatsApp"><i class="fa fa-whatsapp"></i></a>
+          <a href="https://web.facebook.com/nomayer.masum" title="Facebook"><i class="fa fa-facebook"></i></a> -->
+        </div>
+      </div>
 
-						<script>
-
-						// Initialize the typing animation
-						const typingAnimationElement = document.getElementById('typing-animation');
-
-						// Create an array of typing text
-						const typingTexts = [
-						'Aspiring Data Analyst     ',
-						'Former Data Artist     ',
-						'Aspiring Business Analyst      ',
-						'Data Freak      ',
-						];
-
-						// Create a function to display the typing animation for a given text
-						function playTypingAnimation(text) {
-						// Loop through each character and add it to the element
-						for (let i = 0; i < text.length; i++) {
-							setTimeout(() => {
-							typingAnimationElement.textContent += text[i];
-							}, i * 200); // Increase the delay to slow down the typing animation
-						}
-
-						// Once the animation is complete, reset the text and start over
-						setTimeout(() => {
-							typingAnimationElement.textContent = '';
-							playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
-						}, text.length * 200);
-						}
-
-						// Start the typing animation loop
-						playTypingAnimation(typingTexts[0]);
-
-						</script>
-
-						<br>
-						<br>
-			            <p>
-							<a href="https://github.com/nomayer-masum" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
-		            </div>
-		          </div>
-	        	</div>
-	        </div>
-	      </div>
-		</div>
+      <div class="hero-right" aria-hidden="true">
+        <!-- replace with your portrait or illustration -->
+        <img src="images/Portfolio_Image_Edit.png" alt="Masum profile image" onerror="this.style.opacity=.2; this.alt='portrait'">
+      </div>
     </section>
 
+    <!-- ABOUT -->
+    <section id="about" class="section-box" aria-labelledby="aboutTitle">
+      <h3 id="aboutTitle" style="margin:0 0;text-align:center; font-size:28px;">
+  About Me
+</h3>
 
 
-   <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
-    	<div class="container">	
-					<div class="col-md-12 col-lg-12 d-flex">
-							<div class="col-md-12 heading-section ftco-animate">
-								
-								<h1 class="big text-center">About</h1>
-								<h2 class="mb-4 text-center">About Me</h2>
-								
-								<p>
-  								I am a Data Analyst Enthusiast and former Data Artist, where I visualized data for market research and transformed data <br> into visual insights.
-  								Skilled in Excel, Power BI, and SQL, with hands-on experience in real-world business projects like <br> RFM Segmentation and Customer Cohort Analysis.
-  								Experienced in understanding, cleaning, and transforming data into visuals through dashboard design to support better market decisions.<br>
-  								Eager to join a data-driven team or environment where contribution, learning, and growth can happen while transforming data into better business outcomes.
-								</p>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I am Passionate Data Analyst with hands-on experience in data visualization, analytics, and quality assurance.
+            As a former Data Artist at Catalyst Solutions, I transformed complex datasets into actionable insights for market research
+            and business decisions. Skilled in SQL, Power BI, Excel, Spreadsheets & Metabase. I have completed real-world projects including RFM
+            Segmentation, Customer Cohort Analysis, and Retail Performance Analysis. I am passionate about turning data into clear,
+            impactful stories to drive better business outcomes and am eager to contribute to a data-driven team.
+          </p>
+        </div>
 
-
-								<ul class="about-info mt-4 px-md-0 px-2">
-										<li class="d-flex"><span><strong>Profile:</strong></span> <span>Aspiring Data Analyst</span></li>
-										<li class="d-flex"><span><strong>Domain:</strong></span> <span> E-commerce, Public Health, Market research</span></li>
-										<li class="d-flex"><span><strong>Education:</strong></span> <span>B.Sc in Computer Science & Engineering, PCIU</span></li>
-										<li class="d-flex"><span><strong>Language:</strong></span> <span>English, Bengali</span></li>
-										<li class="d-flex"><span><strong>BI Tools:</strong></span> <span>Microsoft Power BI, Excel, Google Sheets</span></li>
-										<li class="d-flex"><span><strong>Cloud Platforms:</strong></span> <span>Snowflake</span></li>
-										<li class="d-flex"><span><strong>Other Skills:</strong></span> <span>SQL (MySQL), Python, C</span></li>
-										<li class="d-flex"><span><strong>Interest:</strong></span> <span>Data Storytelling, Learning New Skills, Travelling</span></li>
-								</ul>
-									  
-							</div>
-						</div>
-
-
-						<div class="counter-wrap ftco-animate d-flex justify-content-center mt-5">
-							<div class="text text-center">
-								<p class="mb-4">
-									<span class="number" data-number="5">0</span> <span>+</span>
-									<span>&nbsp; Projects completed</span>
-								</p>
-								<p><a href="https://www.linkedin.com/in/nomayer/" class="btn btn-primary py-3 px-3">LinkedIn</a></p>
-							</div>
-						</div>
-				</div>
-			</div>
-		</div>
+        <aside class="about-info" aria-label="Quick info">
+          <div class="info-row"><strong>Profile</strong><span>Turning numbers into insights that drive business growth.</span></div>
+          <div class="info-row"><strong>Graduation</strong><span>B.Sc In CSE - Port City International University.</span></div>
+          <div class="info-row"><strong>Languages</strong><span>English (Professional), Bengali (Native).</span></div>
+          <div class="info-row"><strong>BI Tools</strong><span>Power BI, Excel, Spreadsheets, Metabase.</span></div>
+          <div class="info-row"><strong>Database Management</strong><span>PostgreSQL, MySQL, Supabase, Neon.</span></div>
+          <div class="info-row"><strong>Programming</strong><span>Python, SQL, C, JavaScript.</span></div>
+        </aside>
+      </div>
     </section>
 
-
-
-	
-    <section class="ftco-section ftco-no-pb" id="resume-section">
-    	<div class="container">
-    		<div class="row justify-content-center pb-5">
-          <div class="col-md-10 heading-section text-center ftco-animate">
-          	<h1 class="big big-2">Resume</h1>
-            <h2 class="mb-4">Resume</h2>
-            <p>Dedicated and detail-oriented professional with proven experience in data accuracy, quality assurance, and analytical support, committed to leveraging strong organizational and technical skills to contribute to organizational success.</p>
-          </div>
+    <!-- RESUME -->
+    <section id="resume" class="section-box" aria-labelledby="resumeTitle">
+      <h3 id="resumeTitle" style="margin:0 0 12px;text-align:center; font-size:28px;">Experience</h3>
+      <div style="margin-top:18px" class="resume-grid" aria-live="polite">
+        <div class="card">
+          <div class="date">Apr 2024 — Feb 2025</div>
+          <h3>Data Artist (Associate)</h3>
+          <div class="muted">Catalyst Solutions</div>
+          <ul style="margin:12px 0 0 18px;color:var(--muted)">
+            <li>Created and formatted data-heavy charts in PowerPoint and Excel for client presentations.</li>
+            <li>Analyzed datasets to extract insights and ensure accuracy of reported results.</li>
+            <li>Conducted quality checks on online surveys to align outputs with research objectives.</li>
+          </ul>
         </div>
 
-		<div class="row">
-			<h1 class="big-4">Experience</h1>
-			<div class="underline"></div>
-		</div>
-		<br>
-		
-		<div class="row">
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">Apr 2024-Feb 2025</span>
-						<h2>Data Artist(Associate)</h2>
-						<span class="position">Catalyst Solutions</span>
-						<p class="mt-4">Sister concern of Adiva Graphics
-							<ul>
-								<li>Created and formatted data-heavy charts in PowerPoint and Excel for client presentations.</li>
-								<li>Analyzed datasets to extract insights and ensure accuracy of reported results.</li>
-								<li>Conducted quality checks on online surveys to align outputs with research objectives.</li>
-							</ul>
-						</p>
-					</div>
+        <div class="card">
+          <div class="date">Aug 2023 — Mar 2024</div>
+          <h3>Computer Data Entry Operator</h3>
+          <div class="muted">Intelligent Image Management Limited</div>
+          <ul style="margin:12px 0 0 18px;color:var(--muted)">
+            <li>Entered data from real estate documents into client databases with high accuracy.</li>
+            <li>Verified and corrected property, ownership, and legal information for integrity.</li>
+            <li>Met daily productivity targets while maintaining organized, error-free records.</li>
+          </ul>
+        </div>
+      </div>
 
-				</div>
-
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">Aug 2023-March 2024</span>
-						<h2>Computer Data Entry Operator</h2>
-						<span class="position">Intelligent Image Management Limited</span>
-						<p class="mt-4">Multinational Company 
-							<ul>
-								<li>Entered data from real estate documents into client databases with high accuracy.</li>
-								<li>Verified and corrected property, ownership, and legal information to ensure data integrity.</li>
-								<li>Met daily productivity targets while maintaining organized and error-free records.</li>
-							</ul>
-						</p>
-					</div>
-
-				</div>
-			</div>
-
-		<br>
-		<br>
-
-		<div class="row">
-			<h1 class="big-4">Education</h1>
-			<div class="underline"></div>
-		</div>
-		<br>
-		
-			<div class="row">
-    			<div class="col-md-6">
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">2017-2021</span>
-    					<h2>B.Sc In Computer Science & Engineering</h2>
-    					<span class="position">Port City International University</span>
-    					<!-- <p class="mt-4">Grade: First class distinction.</p> -->
-    				</div>
-    			</div>
-
-    			<div class="col-md-6">
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">2014-2016</span>
-    					<h2>Higher Secondary Certificate (Science)</h2>
-    					<span class="position">North Kattaly Al-Haj Mustafa Hakim College</span>
-    					<!-- <p class="mt-4">Grade: First class distinction.</p> -->
-    				</div>
-				</div>
-    		</div>
-
-			<div class="col-md-6">
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">2012-2014</span>
-    					<h2>Secondary School Certificate (Science)</h2>
-    					<span class="position">Chambol High School</span>
-    					<!-- <p class="mt-4">Grade: First class distinction.</p> -->
-    				</div>
-				</div>
-    		</div>
-
-
-    		<div class="row justify-content-center mt-5">
-    			<div class="col-md-6 text-center ftco-animate">
-    				<p><a href="https://drive.google.com/file/d/1MQjkXYBnLKwBg3lhCZpFodpKme2NrckS/view?usp=sharing" class="btn btn-primary py-4 px-5">View Resume</a></p>
-    			</div>
-    		</div>
-    	</div>
+      <!-- <div style="margin-top:18px" class="resume-grid">
+        <div class="card">
+          <div class="date">2017 — 2021</div>
+          <h3>B.Sc in Computer Science & Engineering</h3>
+          <div class="muted">Port City International University</div>
+        </div>
+        <div class="card">
+          <div class="date">2014 — 2016</div>
+          <h3>Higher Secondary Certificate (Science)</h3>
+          <div class="muted">North Kattaly Al-Haj Mustafa Hakim College</div>
+        </div>
+      </div> -->
     </section>
 
-   
+    <!-- PROJECTS -->
+    <section id="projects" class="section-box" aria-labelledby="projectsTitle">
+  <h3 id="projectsTitle" style="margin:0 0 12px;text-align:center; font-size:28px;">Projects</h3>
+  <p class="muted center" style="max-width:70ch;margin:8px auto 12px">
+    Sample Data Analytics projects using Excel, Spreadsheets, SQL & Power BI. Click to view on GitHub.
+  </p>
 
-    <section class="ftco-section" id="project-section">
-  <div class="container">
-    <div class="row justify-content-center mb-5 pb-5">
-      <div class="col-md-7 heading-section text-center ftco-animate">
-        <h1 class="big big-2">Projects</h1>
-        <h2 class="mb-4">Projects</h2>
-        <p>Below are the sample Data Analytics projects on Excel, SQL, Power BI & Python.</p>
+  <div class="projects-grid">
+
+    <div class="proj" role="article">
+      <div class="thumb">
+        <img src="images/Project_3.png" alt="">
+      </div>
+      <div class="meta">
+        <h4><a href="https://github.com/nomayer-masum/Retail-Customer-Cohort-Analysis" target="_blank" rel="noreferrer">Retail Customer Cohort Analysis (Power Bi)</a></h4>
+        <p>Built an interactive Power BI dashboard to track customer cohorts, retention, and churn, providing insights into long-term customer behavior.</p>
       </div>
     </div>
 
-    <!-- First Row -->
-    <div class="row d-flex justify-content-center">
-
-      <!-- 1. Retail Customer Cohort Analysis (Power Bi) -->
-      <div class="col-md-4 d-flex ftco-animate">
-        <div class="blog-entry justify-content-end">
-          <a href="https://github.com/nomayer-masum/Retail-Customer-Cohort-Analysis" class="block-20 zoom-effect" style="background-image: url('images/Project_3.png');"></a>
-          <div class="text mt-3 float-right d-block">
-            <h3 class="heading"><a href="https://github.com/nomayer-masum/Retail-Customer-Cohort-Analysis">Retail Customer Cohort Analysis (Power Bi)</a></h3>
-            <p>Built an interactive Power BI dashboard to track customer cohorts, retention, and churn, providing insights into long-term customer behavior.</p>
-          </div>
-        </div>
+    <div class="proj">
+      <div class="thumb">
+        <img src="images/Business Performance Analysis.png" alt="">
       </div>
-
-      <!-- 2. Business Performance Analysis with Retail Data -->
-      <div class="col-md-4 d-flex ftco-animate">
-        <div class="blog-entry justify-content-end">
-          <div id="projectCarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <a href="https://github.com/nomayer-masum/Business-Performance-Analysis">
-                  <div class="block-20 zoom-effect" style="background-image: url('images/Business Performance Analysis.png');"></div>
-                </a>
-              </div>
-              <div class="carousel-item">
-                <a href="https://github.com/nomayer-masum/Business-Performance-Analysis">
-                  <div class="block-20 zoom-effect" style="background-image: url('images/Business Performance Analysis_page-0001.jpg');"></div>
-                </a>
-              </div>
-              <div class="carousel-item">
-                <a href="https://github.com/nomayer-masum/Business-Performance-Analysis">
-                  <div class="block-20 zoom-effect" style="background-image: url('images/Business Performance Analysis_page-0002.jpg');"></div>
-                </a>
-              </div>
-              <div class="carousel-item">
-                <a href="https://github.com/nomayer-masum/Business-Performance-Analysis">
-                  <div class="block-20 zoom-effect" style="background-image: url('images/Business Performance Analysis_page-0003.jpg');"></div>
-                </a>
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#projectCarousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" style="background-color: rgba(0,0,0,0.5); border-radius: 50%;"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#projectCarousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" style="background-color: rgba(0,0,0,0.5); border-radius: 50%;"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-          <div class="text mt-3 float-right d-block">
-            <h3 class="heading"><a href="https://github.com/nomayer-masum/Business-Performance-Analysis">Business Performance Analysis with Retail Data (Microsoft Excel, Power Bi)</a></h3>
-            <p>Analyze sales and order data to uncover performance patterns, identify top-selling products, and highlight growth opportunities across departments and stores.</p>
-          </div>
-        </div>
+      <div class="meta">
+        <h4><a href="https://github.com/nomayer-masum/Business-Performance-Analysis" target="_blank" rel="noreferrer">Business Performance Analysis with Retail Data (Excel, Power Bi)</a></h4>
+        <p>Analyze sales and order data to uncover performance patterns, identify top-selling products, and highlight growth opportunities across departments and stores.</p>
       </div>
-
-      <!-- 3. RFM Segmentation Analysis -->
-      <div class="col-md-4 d-flex ftco-animate">
-        <div class="blog-entry justify-content-end">
-          <div id="rfmCarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <a href="https://github.com/nomayer-masum/RFM-Segmentation-Analysis">
-                  <div class="block-20 zoom-effect" style="background-image: url('images/RFM Segmentation_page-0001.jpg');"></div>
-                </a>
-              </div>
-              <div class="carousel-item">
-                <a href="https://github.com/nomayer-masum/RFM-Segmentation-Analysis">
-                  <div class="block-20 zoom-effect" style="background-image: url('images/RFM Segmentation_page-0002.jpg');"></div>
-                </a>
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#rfmCarousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" style="background-color: rgba(0,0,0,0.5); border-radius: 50%;"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#rfmCarousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" style="background-color: rgba(0,0,0,0.5); border-radius: 50%;"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-          <div class="text mt-3 float-right d-block">
-            <h3 class="heading"><a href="https://github.com/nomayer-masum/RFM-Segmentation-Analysis">RFM Segmentation Analysis (MySQL, Power Bi)</a></h3>
-            <p>Performed RFM segmentation using MySQL, created database views, and connected to Power BI for visualization, enabling targeted customer behavior insights.</p>
-          </div>
-        </div>
-      </div>
-
     </div>
-    <br>
 
-    <!-- Second Row -->
-    <div class="row d-flex justify-content-center">
-
-      <!-- 4. Data Optimizer's Job Market Analysis -->
-      <div class="col-md-4 d-flex ftco-animate">
-        <div class="blog-entry justify-content-end">
-          <div id="jobMarketCarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <a href="https://github.com/nomayer-masum/Job-Market-Analysis">
-                  <div class="block-20 zoom-effect" style="background-image: url('images/Job_Market_Analysis_page-0001.jpg');"></div>
-                </a>
-              </div>
-              <div class="carousel-item">
-                <a href="https://github.com/nomayer-masum/Job-Market-Analysis">
-                  <div class="block-20 zoom-effect" style="background-image: url('images/Job_Market_Analysis_page-0002.jpg');"></div>
-                </a>
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#jobMarketCarousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" style="background-color: rgba(0,0,0,0.5); border-radius: 50%;"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#jobMarketCarousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" style="background-color: rgba(0,0,0,0.5); border-radius: 50%;"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-          <div class="text mt-3 float-right d-block">
-            <h3 class="heading"><a href="https://github.com/nomayer-masum/Job-Market-Analysis">Data Optimizer's Job Market Analysis (Power Bi)</a></h3>
-            <p>Analyzes employment trends, job postings, skills, and industry dynamics to uncover demand, competition, and emerging opportunities in the job market.</p>
-          </div>
-        </div>
+    <div class="proj">
+      <div class="thumb">
+        <img src="images/RFM Segmentation_page-0001.jpg" alt="">
       </div>
-
-      <!-- 5. Customer Cohort Analysis (MySQL) -->
-      <div class="col-md-4 d-flex ftco-animate">
-        <div class="blog-entry justify-content-end">
-          <a href="https://github.com/nomayer-masum/Cohort-Analysis-SQL" class="block-20 zoom-effect" style="background-image: url('images/Project_5.png');"></a>
-          <div class="text mt-3 float-right d-block">
-            <h3 class="heading"><a href="https://github.com/nomayer-masum/Cohort-Analysis-SQL">Customer Cohort Analysis (MySQL)</a></h3>
-            <p>Designed SQL-based cohort analysis to measure customer retention, churn, lifetime value, and average spend to support data-driven retail strategies.</p>
-          </div>
-        </div>
+      <div class="meta">
+        <h4><a href="https://github.com/nomayer-masum/RFM-Segmentation-Analysis" target="_blank" rel="noreferrer">RFM Segmentation Analysis (MySQL, Power Bi)</a></h4>
+        <p>Performed RFM segmentation using MySQL, created database views, and connected to Power BI for visualization, enabling targeted customer behavior insights.</p>
       </div>
-
-      <!-- 6. Restaurant Order Analysis -->
-      <div class="col-md-4 d-flex ftco-animate">
-        <div class="blog-entry justify-content-end">
-          <a href="https://github.com/nomayer-masum/Restaurant-Order-Analysis" class="block-20 zoom-effect" style="background-image: url('images/restaurant Order analysis.png');"></a>
-          <div class="text mt-3 float-right d-block">
-            <h3 class="heading"><a href="https://github.com/nomayer-masum/Restaurant-Order-Analysis">Restaurant Order Analysis (MySQL)</a></h3>
-            <p>Analyzes customer behavior by identifying the most popular menu items, the highest-priced dishes, and the orders with the highest spend.</p>
-          </div>
-        </div>  
-      </div>
-
     </div>
-    <br>
 
-    <!-- Third Row: Remaining Projects -->
-    <div class="row d-flex justify-content-center">
-
-      <!-- 7. Sales Data Automation and Analysis -->
-      <div class="col-md-4 d-flex ftco-animate">
-        <div class="blog-entry justify-content-end">
-          <a href="https://github.com/nomayer-masum/Sales-Data-Automation-and-Analysis" class="block-20 zoom-effect" style="background-image: url('images/Project_1.png');"></a>
-          <div class="text mt-3 float-right d-block">
-            <h3 class="heading"><a href="https://github.com/nomayer-masum/Sales-Data-Automation-and-Analysis">Sales Data Automation and Analysis (Google Sheets)</a></h3>
-            <p>Automates data entry via a macro-driven form, with the collected information feeding into a dashboard for data analysis.</p>
-          </div>
-        </div>
+    <div class="proj">
+      <div class="thumb">
+        <img src="images/Job_Market_Analysis_page-0001.jpg" alt="">
       </div>
-
-      <!-- 8. Dengue Data Analysis Report in Dhaka City -->
-      <div class="col-md-4 d-flex ftco-animate">
-        <div class="blog-entry justify-content-end">
-          <a href="https://github.com/nomayer-masum/Dengue-Data-Analysis-Report-In-Dhaka-City/tree/main" class="block-20 zoom-effect" style="background-image: url('images/Project_2.png');"></a>
-          <div class="text mt-3 float-right d-block">
-            <h3 class="heading"><a href="https://github.com/nomayer-masum/Dengue-Data-Analysis-Report-In-Dhaka-City/tree/main">Dengue Data Analysis Report in Dhaka City (Microsoft Excel)</a></h3>
-            <p>Analyzes dengue data in Dhaka City to identify patterns, demographics, and high-risk areas, providing insights to support public health interventions.</p>
-          </div>
-        </div>
+      <div class="meta">
+        <h4><a href="https://github.com/nomayer-masum/Job-Market-Analysis" target="_blank" rel="noreferrer">Data Optimizer's Job Market Analysis (Power Bi)</a></h4>
+        <p>Analyzes employment trends, job postings, skills, and industry dynamics to uncover demand, competition, and emerging opportunities in the job market.</p>
       </div>
-
     </div>
+
+    <div class="proj">
+      <div class="thumb">
+        <img src="images/Project_5.png" alt="">
+      </div>
+      <div class="meta">
+        <h4><a href="https://github.com/nomayer-masum/Cohort-Analysis-SQL" target="_blank" rel="noreferrer">SQL-Based Customer Cohort Analysis for Retail (MySQL)</a></h4>
+        <p>Designed SQL-based cohort analysis to measure customer retention, churn, lifetime value, and average spend to support data-driven retail strategies.</p>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="thumb">
+        <img src="images/Project_1.png" alt="">
+      </div>
+      <div class="meta">
+        <h4><a href="https://github.com/nomayer-masum/Sales-Data-Automation-and-Analysis" target="_blank" rel="noreferrer">Sales Data Automation and Analysis (Spreadsheets)</a></h4>
+        <p>Automates data entry via a macro-driven form, with the collected information feeding into a dashboard for data analysis.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
 
-	<section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
-      <div class="container">
-		<div class="row d-md-flex align-items-center">
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="18">0</strong> 
-                <span>Job Experience (Month)</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="9">0</strong>
-                <span>Projects</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="6">0</strong>
-                <span>Webinar Attended</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="500">0</strong>
-                <span>Cups of coffee</span>
-              </div>
-            </div>
-          </div>
+    <!-- CONTACT -->
+    <section id="contact" class="section-box" aria-labelledby="contactTitle">
+      <h3 id="contactTitle" style="margin:0 0 12px;text-align:center; font-size:28px;">Contact Me</h3>
+      <p class="muted center" style="max-width:70ch;margin:8px auto 12px">Reach out for project collaborations, questions, or opportunities.</p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div style="font-size:28px;color:var(--accent)"><i class="fa fa-map-marker-alt"></i></div>
+          <h4>Address</h4>
+          <p><a href="https://maps.app.goo.gl/R225b5eu1dCjDGjr7" style="color:var(--muted);text-decoration:none">Chattogram, Bangladesh</a></p>
+        </div>
+
+        <div class="contact-card">
+          <div style="font-size:28px;color:var(--accent)"><i class="fa fa-phone"></i></div>
+          <h4>WhatsApp</h4>
+          <p><a href="https://wa.me/+8801645093629" style="color:var(--muted);text-decoration:none">+880 1645 093629</a></p>
+        </div>
+
+        <div class="contact-card">
+          <div style="font-size:28px;color:var(--accent)"><i class="fa fa-envelope"></i></div>
+          <h4>Email</h4>
+          <p><a href="mailto:nomayer.masum@gmail.com" style="color:var(--muted);text-decoration:none">nomayer.masum@gmail.com</a></p>
+        </div>
+
+        <div class="contact-card">
+          <div style="font-size:28px;color:var(--accent)"><i class="fa-brands fa-discord"></i></div>
+          <h4>Discord</h4>
+          <p><a href="https://discord.com/users/1348581447320997888" style="color:var(--muted);text-decoration:none">nomayer_masum</a></p>
         </div>
       </div>
-	
-	  <div class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpg)">
-			<!-- <div class="container"> -->
-				<div class="row justify-content-center">
-					<div class="col-md-7 ftco-animate text-center">
-						<h2>More projects on<span> Github  </span> </h2>
-						<div class="heading"> <h4> I love to solve business problems &amp; uncover hidden data stories </h4>
-						<br>
-						<p><a href="https://github.com/nomayer-masum" class="btn btn-primary py-3 px-5">GitHub</a></p>
-						</div>
-					</div>
-				</div>
-			<!-- </div> -->
-		</div>
-	</section>
 
+      <div style="margin-top:18px" class="center">
+        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfSpezas_aYWjoLetJw63KWWBoaTZmxHCj3hW3DfCpKKlvGbQ/viewform?usp=sharing&ouid=106399329914643194621" target="_blank" rel="noreferrer">Have a Question? Click Here</a>
+      </div>
+    </section>
 
+    <!-- FOOTER -->
+    <footer>
+      <div class="muted">© <span id="year"></span> Masum Al Mahmud Nomayer — All rights reserved</div>
+    </footer>
+  </div>
 
-    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
-      <div class="container">
-      	<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Contact</h1>
-            <h2 class="mb-4">Contact Me</h2>
-            <p>Below are the details to reach out to me!</p>
-          </div>
-        </div>
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-        <div class="row d-flex contact-info mb-5">
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-map-signs"></span>
-          		</div>
-          		<h3 class="mb-4">Address</h3>
-	            <p>Chattogram, Bangladesh</p>
-	          </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-phone2"></span>
-          		</div>
-          		<h3 class="mb-4">WhatsApp</h3>
-	            <p><a href="https://wa.me/01645093629">+ 880 1645093629</a></p>
-	          </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-paper-plane"></span>
-          		</div>
-          		<h3 class="mb-4">Email Address</h3>
-	            <p><a href="mailto:info@yoursite.com">nomayer.masum@gmail.com</a></p>
-	          </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-globe"></span>
-          		</div>
-          		<h3 class="mb-4">Discord</h3>
-	            <p><a href="https://discord.com/users/1348581447320997888">nomayer_masum</a></p>
-	          </div>
-          </div>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      if (navLinks.style.display === 'flex') {
+        navLinks.style.display = '';
+      } else {
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.right = '20px';
+        navLinks.style.top = '72px';
+        navLinks.style.background = 'rgba(6,10,18,0.6)';
+        navLinks.style.padding = '10px';
+        navLinks.style.borderRadius = '12px';
+      }
+    });
 
-		  <div class="container">
-			<br>
-			<br>
-			<div class="row justify-content-center">
-				<div class="col-md-7 ftco-animate text-center">
-					<h2>Have a<span> Question?  </span> <a href="https://docs.google.com/forms/d/e/1FAIpQLSfSpezas_aYWjoLetJw63KWWBoaTZmxHCj3hW3DfCpKKlvGbQ/viewform?usp=sharing&ouid=106399329914643194621" class="btn btn-primary py-3 px-5">Click Here</a> </h2>
-				</div>
-			</div>
-				<br>
-					<ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center mb-0">
-					  <li class="ftco-animate normal-txt">Find me on  </li>
-					  <li class="ftco-animate"><a href="https://www.linkedin.com/in/nomayer/"><span class="icon-linkedin"></span></a></li>  
-					  <li class="ftco-animate"><a href="https://web.facebook.com/nomayer.masum"><span class="icon-facebook"></span></a></li>
-				      <li class="ftco-animate"><a href="https://www.instagram.com/nomayer.masum/"><span class="icon-instagram"></span></a></li>
-					</ul>
-				<br>
-		   </div>
-   </div>
- </section>
-
-
- 
-	
-    <footer class="ftco-footer ftco-section">
-		<div class="container">
-		  <div class="row">
-			<div class="col-md-12 text-center">
-  
-			  <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-	Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-	<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-			</div>
-		  </div>
-		</div>
-	  </footer>
-
-
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  
-  <script src="js/main.js"></script>
-    
-  </body>
+    // Small typed headline (cycle through short labels)
+    const labels = ['Passionate Data Analyst', 'Former Data Artist', 'Business Analyst Enthusiast', 'Data Storyteller'];
+    let idx = 0;
+    const homeTitle = document.getElementById('homeTitle');
+    setInterval(() => {
+      idx = (idx + 1) % labels.length;
+      homeTitle.textContent = 'I am ' + labels[idx];
+      // revert after 3s to main name
+      setTimeout(()=>{ homeTitle.textContent = "I'm Masum Al Mahmud Nomayer"; }, 3000);
+    }, 4500);
+  </script>
+</body>
 </html>
